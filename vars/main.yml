@@ -1,0 +1,7 @@
+---
+# vars file for om
+om_exe: om-{{ om_os }}-{{ om_ver }}
+om_url: '{{ om_mirror }}/{{ om_ver }}/{{ om_exe }}'
+om_checksum: '{{ om_checksums[om_ver][om_os] }}'
+om_installed_exe: '{{ om_install_dir }}/{{ om_exe }}'
+om_installed_link: '{{ om_install_dir }}/om'

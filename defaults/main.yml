@@ -1,0 +1,15 @@
+---
+# defaults file for om
+om_ver: 6.1.1
+om_os: linux
+om_install_dir: /usr/local/bin
+om_mirror: https://github.com/pivotal-cf/om/releases/download
+om_checksums:
+  # https://github.com/pivotal-cf/om/releases/download/6.1.1/checksums.txt
+  '6.1.1':
+    # https://github.com/pivotal-cf/om/releases/download/6.1.1/om-darwin-6.1.1
+    darwin: sha256:28d825bce4dbe20a050e862efa4d9d5144a41e5ec003563d3b1613f2e0a5b257
+    # https://github.com/pivotal-cf/om/releases/download/6.1.1/om-linux-6.1.1
+    linux: sha256:3234870e1b7ffdcd4c6524fad64d89fb2742882e4f68138c9cd94f290277581b
+    # https://github.com/pivotal-cf/om/releases/download/6.1.1/om-windows-6.1.1.exe
+    windows: sha256:99d18c5d18d3e59f78a8f79c025d6d0a8132072cf229c964e9684508b3dfe9f9
