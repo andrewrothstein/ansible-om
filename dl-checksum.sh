@@ -35,4 +35,4 @@ dl_ver() {
     dl $ver $lchecksums windows .exe
 }
 
-dl_ver ${1:-7.2.0}
+dl_ver ${1:-7.3.0}
