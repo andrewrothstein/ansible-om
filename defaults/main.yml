@@ -1,6 +1,6 @@
 ---
 # defaults file for om
-om_ver: 7.4.1
+om_ver: 7.4.2
 om_os: linux
 om_install_dir: /usr/local/bin
 om_mirror: https://github.com/pivotal-cf/om/releases/download
@@ -77,3 +77,11 @@ om_checksums:
     linux: sha256:9610518a247c415e2f1e5a470f6fec832b50b856d726d5093f8fdde44efaaeda
     # https://github.com/pivotal-cf/om/releases/download/7.4.1/om-windows-7.4.1.exe
     windows: sha256:9384ec9013d744fff9a42f94dd2f2e2106302375cecc449b73fd2296dbb0109f
+  # https://github.com/pivotal-cf/om/releases/download/7.4.2/checksums.txt
+  '7.4.2':
+    # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-darwin-7.4.2
+    darwin: sha256:d8596a321e564d2000414635bead61adefd5db0cd7642714bb84a5126c288457
+    # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-linux-7.4.2
+    linux: sha256:955dc65a72356be2999e2ddaddc5b61882e9421ec302bdeeb078ad8010537d6e
+    # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-windows-7.4.2.exe
+    windows: sha256:f5bc9218e443229fdf70d667cbb1d77c2e767e1c994adeec40cc9783d3017840
