@@ -24,7 +24,7 @@ dl_ver() {
     local rchecksums=$MIRROR/$ver/checksums.txt
     if [ ! -e $lchecksums ];
     then
-        wget -q -O $lchecksums $rchecksums
+        curl -sSLf -o $lchecksums $rchecksums
     fi
     printf "  # %s\n" $rchecksums
     printf "  '%s':\n" $ver
@@ -35,4 +35,4 @@ dl_ver() {
     dl $ver $lchecksums windows .exe
 }
 
-dl_ver ${1:-7.4.2}
+dl_ver ${1:-7.6.0}
