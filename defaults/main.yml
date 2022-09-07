@@ -86,6 +86,14 @@ om_checksums:
     # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-windows-7.4.2.exe
     windows: sha256:f5bc9218e443229fdf70d667cbb1d77c2e767e1c994adeec40cc9783d3017840
   # https://github.com/pivotal-cf/om/releases/download/7.5.0/checksums.txt
+  # https://github.com/pivotal-cf/om/releases/download/7.4.3/checksums.txt
+  '7.4.3':
+    # https://github.com/pivotal-cf/om/releases/download/7.4.3/om-darwin-7.4.3
+    darwin: sha256:3fc8c0115938b0b957ccb55b152dbbfcc2dd1568aa5bba62fbbfce392635052f
+    # https://github.com/pivotal-cf/om/releases/download/7.4.3/om-linux-7.4.3
+    linux: sha256:b155021806351c8c0e5d7fd0103589130e819d0b0fb56b67db8b651a45744f02
+    # https://github.com/pivotal-cf/om/releases/download/7.4.3/om-windows-7.4.3.exe
+    windows: sha256:b42b75d727441f8b6859970c519630d7fed1d83aad1e30a1a8c80929b9ef3e4a
   '7.5.0':
     # https://github.com/pivotal-cf/om/releases/download/7.5.0/om-darwin-7.5.0
     darwin: sha256:01d7d3e6b5ddc6e404b001fddffd391eccc4653d42c9f3c507d689619d849d5f
