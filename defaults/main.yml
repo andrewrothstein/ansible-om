@@ -1,119 +1,34 @@
 ---
 # defaults file for om
-om_ver: 7.7.0
-om_os: linux
-om_install_dir: /usr/local/bin
+om_ver: 7.8.1
+om_arch_map:
+  aarch64: arm64
+  arm64: arm64
+  x86_64: amd64
+om_parent_install_dir: /usr/local
 om_mirror: https://github.com/pivotal-cf/om/releases/download
 om_checksums:
-  # https://github.com/pivotal-cf/om/releases/download/6.1.1/checksums.txt
-  '6.1.1':
-    # https://github.com/pivotal-cf/om/releases/download/6.1.1/om-darwin-6.1.1
-    darwin: sha256:28d825bce4dbe20a050e862efa4d9d5144a41e5ec003563d3b1613f2e0a5b257
-    # https://github.com/pivotal-cf/om/releases/download/6.1.1/om-linux-6.1.1
-    linux: sha256:3234870e1b7ffdcd4c6524fad64d89fb2742882e4f68138c9cd94f290277581b
-    # https://github.com/pivotal-cf/om/releases/download/6.1.1/om-windows-6.1.1.exe
-    windows: sha256:99d18c5d18d3e59f78a8f79c025d6d0a8132072cf229c964e9684508b3dfe9f9
-  # https://github.com/pivotal-cf/om/releases/download/7.1.1/checksums.txt
-  '7.1.1':
-    # https://github.com/pivotal-cf/om/releases/download/7.1.1/om-darwin-7.1.1
-    darwin: sha256:10b71fd98d1fe5511110569252589e1d71ed038908ea579111d6f7bb1d17b26a
-    # https://github.com/pivotal-cf/om/releases/download/7.1.1/om-linux-7.1.1
-    linux: sha256:c5dadd430aa93f9b043459b96d2b59332333347304f017e459fb2e332ed2eb89
-    # https://github.com/pivotal-cf/om/releases/download/7.1.1/om-windows-7.1.1.exe
-    windows: sha256:96605a88b93d12dab4dd526392ba09d4942f9fce7e8d8bbe17212a27d63566da
-  # https://github.com/pivotal-cf/om/releases/download/7.1.2/checksums.txt
-  '7.1.2':
-    # https://github.com/pivotal-cf/om/releases/download/7.1.2/om-darwin-7.1.2
-    darwin: sha256:1e2c5bfb93fa4c83fae97c66567f76cbadfae92978c7ef57f9edfdffcebd251a
-    # https://github.com/pivotal-cf/om/releases/download/7.1.2/om-linux-7.1.2
-    linux: sha256:e42303be59c392330083f94c9a96df609c038c6df2b211b9f217fd81b9fa6d82
-    # https://github.com/pivotal-cf/om/releases/download/7.1.2/om-windows-7.1.2.exe
-    windows: sha256:2226397f512c5c9024e370f2825be1d6a30ec02064669db57ef64be17d64d10d
-  # https://github.com/pivotal-cf/om/releases/download/7.2.0/checksums.txt
-  '7.2.0':
-    # https://github.com/pivotal-cf/om/releases/download/7.2.0/om-darwin-7.2.0
-    darwin: sha256:f85a86d4979cbcda3f696c613a4fe255d0141f73ce3ef529aa678ea7280fbb5f
-    # https://github.com/pivotal-cf/om/releases/download/7.2.0/om-linux-7.2.0
-    linux: sha256:f74ab64e8248e0d84f13eda23793f5d7a3a30517ddae6d6b0a00ca36ece77484
-    # https://github.com/pivotal-cf/om/releases/download/7.2.0/om-windows-7.2.0.exe
-    windows: sha256:b17863afd93c392d57411bf6cd81d4e1fb9ba32b94a8d72f98aced66d9fed258
-  # https://github.com/pivotal-cf/om/releases/download/7.3.0/checksums.txt
-  '7.3.0':
-    # https://github.com/pivotal-cf/om/releases/download/7.3.0/om-darwin-7.3.0
-    darwin: sha256:b24a4a693cfcf9d5b4c558c540be5747a3ce22c889fb80f08be7dfa834483ad2
-    # https://github.com/pivotal-cf/om/releases/download/7.3.0/om-linux-7.3.0
-    linux: sha256:8980c9879324b586e027f220d25d75d8536f7bdc1e2f11f98863a86af7b62be2
-    # https://github.com/pivotal-cf/om/releases/download/7.3.0/om-windows-7.3.0.exe
-    windows: sha256:26eb1089a9ebf772895fc42223e066947367b7b0e316d87289092fe74617141e
-  # https://github.com/pivotal-cf/om/releases/download/7.3.1/checksums.txt
-  '7.3.1':
-    # https://github.com/pivotal-cf/om/releases/download/7.3.1/om-darwin-7.3.1
-    darwin: sha256:a5bd5ad6ac551ec559234162f573f017fcbb4f47ee32ea9a91d57893362bb0fb
-    # https://github.com/pivotal-cf/om/releases/download/7.3.1/om-linux-7.3.1
-    linux: sha256:963a7ee637f77500317bc43b15640f3396c9f860a31dfff4e6a9f3b3d2b06612
-    # https://github.com/pivotal-cf/om/releases/download/7.3.1/om-windows-7.3.1.exe
-    windows: sha256:fe863d4f6e98203ea4af33d1633201e977087f0973bd79e6b78123dc8146b8f0
-  # https://github.com/pivotal-cf/om/releases/download/7.3.2/checksums.txt
-  '7.3.2':
-    # https://github.com/pivotal-cf/om/releases/download/7.3.2/om-darwin-7.3.2
-    darwin: sha256:27bbc7b9531482e6a0cf798d9c03ec05b972fca88f599490abd7abdd093188be
-    # https://github.com/pivotal-cf/om/releases/download/7.3.2/om-linux-7.3.2
-    linux: sha256:879bf7f84c1f9a1b6264d0f69d383616add292a036369f40950432372e965a04
-    # https://github.com/pivotal-cf/om/releases/download/7.3.2/om-windows-7.3.2.exe
-    windows: sha256:664880bd9f13cb872ac88e660d3e6270ccbde03473abfcb600c70775499d63dd
-  # https://github.com/pivotal-cf/om/releases/download/7.4.0/checksums.txt
-  '7.4.0':
-    # https://github.com/pivotal-cf/om/releases/download/7.4.0/om-darwin-7.4.0
-    darwin: sha256:0f08f2315bf502cdc337471aa9d4ad083d15be64ba4c13f2012840b75b36ac43
-    # https://github.com/pivotal-cf/om/releases/download/7.4.0/om-linux-7.4.0
-    linux: sha256:2c3cb2322af9b1383abf50f8dc0bab376182751e7910b9e70e690a42ac137ae8
-    # https://github.com/pivotal-cf/om/releases/download/7.4.0/om-windows-7.4.0.exe
-    windows: sha256:5951bb7488ea631c2abcde692b00cfe6caa17da66a002dc7e8cd5c84b1addd5a
-  # https://github.com/pivotal-cf/om/releases/download/7.4.1/checksums.txt
-  '7.4.1':
-    # https://github.com/pivotal-cf/om/releases/download/7.4.1/om-darwin-7.4.1
-    darwin: sha256:80387e55770f505b1e97a7490d896d18febd08290b04ff13eb1ad801df21bc58
-    # https://github.com/pivotal-cf/om/releases/download/7.4.1/om-linux-7.4.1
-    linux: sha256:9610518a247c415e2f1e5a470f6fec832b50b856d726d5093f8fdde44efaaeda
-    # https://github.com/pivotal-cf/om/releases/download/7.4.1/om-windows-7.4.1.exe
-    windows: sha256:9384ec9013d744fff9a42f94dd2f2e2106302375cecc449b73fd2296dbb0109f
-  # https://github.com/pivotal-cf/om/releases/download/7.4.2/checksums.txt
-  '7.4.2':
-    # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-darwin-7.4.2
-    darwin: sha256:d8596a321e564d2000414635bead61adefd5db0cd7642714bb84a5126c288457
-    # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-linux-7.4.2
-    linux: sha256:955dc65a72356be2999e2ddaddc5b61882e9421ec302bdeeb078ad8010537d6e
-    # https://github.com/pivotal-cf/om/releases/download/7.4.2/om-windows-7.4.2.exe
-    windows: sha256:f5bc9218e443229fdf70d667cbb1d77c2e767e1c994adeec40cc9783d3017840
-  # https://github.com/pivotal-cf/om/releases/download/7.5.0/checksums.txt
-  # https://github.com/pivotal-cf/om/releases/download/7.4.3/checksums.txt
-  '7.4.3':
-    # https://github.com/pivotal-cf/om/releases/download/7.4.3/om-darwin-7.4.3
-    darwin: sha256:3fc8c0115938b0b957ccb55b152dbbfcc2dd1568aa5bba62fbbfce392635052f
-    # https://github.com/pivotal-cf/om/releases/download/7.4.3/om-linux-7.4.3
-    linux: sha256:b155021806351c8c0e5d7fd0103589130e819d0b0fb56b67db8b651a45744f02
-    # https://github.com/pivotal-cf/om/releases/download/7.4.3/om-windows-7.4.3.exe
-    windows: sha256:b42b75d727441f8b6859970c519630d7fed1d83aad1e30a1a8c80929b9ef3e4a
-  '7.5.0':
-    # https://github.com/pivotal-cf/om/releases/download/7.5.0/om-darwin-7.5.0
-    darwin: sha256:01d7d3e6b5ddc6e404b001fddffd391eccc4653d42c9f3c507d689619d849d5f
-    # https://github.com/pivotal-cf/om/releases/download/7.5.0/om-linux-7.5.0
-    linux: sha256:2f54e58d4d8761ef246a36992df4af51cc353afd9e0d57676e1d54d5e8f47743
-    # https://github.com/pivotal-cf/om/releases/download/7.5.0/om-windows-7.5.0.exe
-    windows: sha256:ba3202930370986aa618ad396645dc04e8cc1adb4f6013b99a59fa97947fc196
-  # https://github.com/pivotal-cf/om/releases/download/7.6.0/checksums.txt
-  '7.6.0':
-    # https://github.com/pivotal-cf/om/releases/download/7.6.0/om-darwin-7.6.0
-    darwin: sha256:2998ba5b61d6fbd36b67364ca633f531ec6f70304bc883e5f1a11df8d12097fc
-    # https://github.com/pivotal-cf/om/releases/download/7.6.0/om-linux-7.6.0
-    linux: sha256:463693891f178f80fe52fb8588b04dc78f089727f14a98237e8fa4f3cbcb6f2b
-    # https://github.com/pivotal-cf/om/releases/download/7.6.0/om-windows-7.6.0.exe
-    windows: sha256:1dbca85f3ce0a555618c1aed0f3c27d915765f893456df09991ad17d1f3d2576
-  # https://github.com/pivotal-cf/om/releases/download/7.7.0/checksums.txt
-  '7.7.0':
-    # https://github.com/pivotal-cf/om/releases/download/7.7.0/om-darwin-7.7.0
-    darwin: sha256:87be78cb6ff7eb2030907ed9b01b958a443162005458e01a06eb218d0c5562f8
-    # https://github.com/pivotal-cf/om/releases/download/7.7.0/om-linux-7.7.0
-    linux: sha256:c98c7ed1bf011b31f27621adca847e1914ff4393bbebf634e6a58d95ebc555c5
-    # https://github.com/pivotal-cf/om/releases/download/7.7.0/om-windows-7.7.0.exe
-    windows: sha256:f1fa62c19f2624001cd21711c75a1b572b9959eaedb9d314c22093a755e732e0
+  # https://github.com/pivotal-cf/om/releases/download/7.8.0/checksums.txt
+  '7.8.0':
+    # https://github.com/pivotal-cf/om/releases/download/7.8.0/om-darwin-amd64-7.8.0.tar.gz
+    darwin-amd64: sha256:1d0c6aeea1dac898e32f7b840fcfd6ee882567bb27614fc75169043d56e1224f
+    # https://github.com/pivotal-cf/om/releases/download/7.8.0/om-darwin-arm64-7.8.0.tar.gz
+    darwin-arm64: sha256:cc26cc1fb1f5cca1b98c86c67fe1b1035f2dfb7b3ceb110cceede301899c5608
+    # https://github.com/pivotal-cf/om/releases/download/7.8.0/om-linux-amd64-7.8.0.tar.gz
+    linux-amd64: sha256:228b6ea80f5ff728c4ca60d6a6293254143527d3cb2a906692b847f9652425ab
+    # https://github.com/pivotal-cf/om/releases/download/7.8.0/om-linux-arm64-7.8.0.tar.gz
+    linux-arm64: sha256:d9e01e1d11641abd634610a058a03a8b3efa83e5f237766231d00abad0f1ae9f
+    # https://github.com/pivotal-cf/om/releases/download/7.8.0/om-windows-amd64-7.8.0.zip
+    windows-amd64: sha256:30c14142bf444c1f086b95b39b36c28ff0197750c3845f18315941fca844590f
+  # https://github.com/pivotal-cf/om/releases/download/7.8.1/checksums.txt
+  '7.8.1':
+    # https://github.com/pivotal-cf/om/releases/download/7.8.1/om-darwin-amd64-7.8.1.tar.gz
+    darwin-amd64: sha256:a3be32956c3c261a61103773dc9cf86f67229317869679a4258cba89443665a6
+    # https://github.com/pivotal-cf/om/releases/download/7.8.1/om-darwin-arm64-7.8.1.tar.gz
+    darwin-arm64: sha256:57be219a49a871af8975908acf1e9c10e51489850d3966d849160e78420f0820
+    # https://github.com/pivotal-cf/om/releases/download/7.8.1/om-linux-amd64-7.8.1.tar.gz
+    linux-amd64: sha256:b8a1bd6c77b2908cf82131ad8ac7decd6f668c896fc48680986cddeaa64f10a3
+    # https://github.com/pivotal-cf/om/releases/download/7.8.1/om-linux-arm64-7.8.1.tar.gz
+    linux-arm64: sha256:671575283bd1d191d68b362b8f1aa40bff3717fa094a7d1efd7da70df843d250
+    # https://github.com/pivotal-cf/om/releases/download/7.8.1/om-windows-amd64-7.8.1.zip
+    windows-amd64: sha256:8f59106927259a04ddc2614736d2c22e32fa96ac3e56fc482f72a02d85c3ec58

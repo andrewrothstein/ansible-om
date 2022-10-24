@@ -1,7 +1,15 @@
 ---
 # vars file for om
-om_exe: om-{{ om_os }}-{{ om_ver }}
-om_url: '{{ om_mirror }}/{{ om_ver }}/{{ om_exe }}'
-om_checksum: '{{ om_checksums[om_ver][om_os] }}'
-om_installed_exe: '{{ om_install_dir }}/{{ om_exe }}'
-om_installed_link: '{{ om_install_dir }}/om'
+om_os: '{{ ansible_system | lower }}'
+om_arch: '{{ om_arch_map[ansible_architecture] }}'
+om_platform: '{{ om_os }}-{{ om_arch }}'
+# https://github.com/pivotal-cf/om/releases/download/7.8.1/om-linux-arm64-7.8.1.tar.gz
+om_name: om-{{ om_platform }}-{{ om_ver }}
+om_archive: '{{ om_name }}.{{ om_archive_type | default("tar.gz") }}'
+om_tmp_archive: '{{ om_tmp_dir | default("/tmp") }}/{{ om_archive }}'
+om_url: '{{ om_mirror }}/{{ om_ver }}/{{ om_archive }}'
+om_checksum: '{{ om_checksums[om_ver][om_platform] }}'
+om_install_dir: '{{ om_parent_install_dir }}/{{ om_name }}'
+om_exe_name: om{{ om_dotexe | default("") }}
+om_exe: '{{ om_install_dir }}/{{ om_exe_name }}'
+om_link: '{{ om_parent_install_dir }}/bin/{{ om_exe_name }}'

@@ -9,13 +9,14 @@ dl()
     local ver=$1
     local lchecksums=$2
     local os=$3
-    local dot_exe=${4:-}
-    local platform="${os}"
-    local file=${APP}-${platform}-${ver}${dot_exe}
+    local arch=$4
+    local archive_type=${5:-tar.gz}
+    local platform="${os}-${arch}"
+    local file=${APP}-${platform}-${ver}.${archive_type}
     local url=$MIRROR/$ver/$file
 
     printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $os `egrep -e "$file\$" $lchecksums | awk '{print $1}'`
+    printf "    %s: sha256:%s\n" $platform $(egrep -e "$file\$" $lchecksums | awk '{print $1}')
 }
 
 dl_ver() {
@@ -30,9 +31,11 @@ dl_ver() {
     printf "  '%s':\n" $ver
 
 
-    dl $ver $lchecksums darwin
-    dl $ver $lchecksums linux
-    dl $ver $lchecksums windows .exe
+    dl $ver $lchecksums darwin amd64
+    dl $ver $lchecksums darwin arm64
+    dl $ver $lchecksums linux amd64
+    dl $ver $lchecksums linux arm64
+    dl $ver $lchecksums windows amd64 zip
 }
 
-dl_ver ${1:-7.7.0}
+dl_ver ${1:-7.8.1}
