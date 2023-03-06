@@ -1,6 +1,6 @@
 ---
 # defaults file for om
-om_ver: 7.8.1
+om_ver: 7.9.0
 om_arch_map:
   aarch64: arm64
   arm64: arm64
@@ -32,3 +32,15 @@ om_checksums:
     linux-arm64: sha256:671575283bd1d191d68b362b8f1aa40bff3717fa094a7d1efd7da70df843d250
     # https://github.com/pivotal-cf/om/releases/download/7.8.1/om-windows-amd64-7.8.1.zip
     windows-amd64: sha256:8f59106927259a04ddc2614736d2c22e32fa96ac3e56fc482f72a02d85c3ec58
+  # https://github.com/pivotal-cf/om/releases/download/7.9.0/checksums.txt
+  '7.9.0':
+    # https://github.com/pivotal-cf/om/releases/download/7.9.0/om-darwin-amd64-7.9.0.tar.gz
+    darwin-amd64: sha256:345ed41965edae81828fc9fd9e840482e60316007e0fc03a99b06121ac017bdd
+    # https://github.com/pivotal-cf/om/releases/download/7.9.0/om-darwin-arm64-7.9.0.tar.gz
+    darwin-arm64: sha256:3e4845c78c4949911e6a6d8572b582379e5147f5baac50a480c849b0b7f1458b
+    # https://github.com/pivotal-cf/om/releases/download/7.9.0/om-linux-amd64-7.9.0.tar.gz
+    linux-amd64: sha256:746923cdd9199c8b014d7d334ede46c5dcdd0d215440617c12b5094844d5ce0d
+    # https://github.com/pivotal-cf/om/releases/download/7.9.0/om-linux-arm64-7.9.0.tar.gz
+    linux-arm64: sha256:7f517a03b52a10df62e47be2959effc7e7bf4256b5f7915662f9c342545e922e
+    # https://github.com/pivotal-cf/om/releases/download/7.9.0/om-windows-amd64-7.9.0.zip
+    windows-amd64: sha256:fe9d44fafeb9e55ad7a64cccef8642359974333fb78d2400157957cb64eb5d40
