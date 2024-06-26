@@ -1,8 +1,6 @@
 ---
-- include_role:
-    name: andrewrothstein.unarchive-deps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,48 +9,52 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: check for installation at {{ om_exe }}
+- name: Check for installation at {{ om_exe }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ om_exe }}'
   changed_when: false
   register: om_binary
-- when: not om_binary.stat.exists
+- name: Downloading and installing om
+  when: not om_binary.stat.exists
   block:
-    - name: download {{ om_url }} to {{ om_tmp_archive }}...
+    - name: Download {{ om_url }} to {{ om_tmp_archive }}...
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ om_url }}'
         dest: '{{ om_tmp_archive }}'
         checksum: '{{ om_checksum }}'
-        mode: 0644
-    - name: mkdir {{ om_install_dir }}
+        mode: '644'
+    - name: Mkdir {{ om_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ om_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchive {{ om_tmp_archive }} to {{ om_install_dir }}
+        mode: '755'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Unarchive {{ om_tmp_archive }} to {{ om_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ om_tmp_archive }}'
         dest: '{{ om_install_dir }}'
         creates: '{{ om_exe }}'
   always:
-    - name: rm {{ om_tmp_archive }}
+    - name: Rm {{ om_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ om_tmp_archive }}'
         state: absent
-- name: linking {{ om_link }} to {{ om_exe }}...
+- name: Linking {{ om_link }} to {{ om_exe }}...
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ om_exe }}'
     dest: '{{ om_link }}'
     state: link
